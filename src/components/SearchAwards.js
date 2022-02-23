@@ -10,17 +10,33 @@ function SearchAwards({placeholder, data}) {
 
     const [awardsData, setAwardsData] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [loader, setLoader] = useState(false);
 
-    console.log(data);
+    //console.log(data);
 
     const filterData = (event) => {
-        const searchAwardList = event.target.value;
-        setSearchTerm(searchAwardList);
+        const searchAwardTerm = event.target.value;
+        setLoader(true);
+        setSearchTerm(searchAwardTerm);
         const newFilter = data.filter((value) => {
-          return value.category.toLowerCase().includes(searchAwardList.toLowerCase()) || value.year.includes(searchAwardList.toLowerCase());
+          setLoader(false);
+          if(value.laureates&&value.laureates.length!==0) {
+            return value.category.toLowerCase().includes(searchAwardTerm.toLowerCase()) || value.year.includes(searchAwardTerm.toLowerCase()) || checkTerm(value.laureates, searchAwardTerm.toLowerCase());
+          } else {
+            return value.category.toLowerCase().includes(searchAwardTerm.toLowerCase()) || value.year.includes(searchAwardTerm.toLowerCase());
+          }
+          
         });
+
+
+        function checkTerm (arr, val) {
+          return arr.some((arrVal) => {
+            return (arrVal.surname?arrVal.surname.toLowerCase().includes(val):false)||(arrVal.firstname?arrVal.firstname.toLowerCase().includes(val):false)||(arrVal.motivation?arrVal.motivation.toLowerCase().includes(val):false);
+          });
+        };
+
     
-        if (searchAwardList === "") {
+        if (searchAwardTerm === "") {
           setAwardsData([]);
         } else {
           setAwardsData(newFilter);
@@ -71,6 +87,7 @@ function SearchAwards({placeholder, data}) {
                           <b> {value.category}</b>
                         </span>
                         <p>Year: <b>{value.year} </b></p>
+
                         <p>Laureates:</p>
                       </div>
                       <div class="card-action">
@@ -82,6 +99,7 @@ function SearchAwards({placeholder, data}) {
                                   return (
                                     <span>
                                       <a href="#">{v.firstname+' '+v.surname}</a>
+                                      <p>{v.motivation}</p>
                                     </span>
                                   )
                                 })
@@ -106,6 +124,21 @@ function SearchAwards({placeholder, data}) {
                 <p>No Results</p>
               </div>
             )}
+
+          {loader&&(
+            <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-green-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+          )}
+
 
         </div>
     )
