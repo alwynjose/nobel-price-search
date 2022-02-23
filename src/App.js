@@ -15,7 +15,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetchNobelPrizes();
+    fetchNobelPrizes(); // initial call to fetch nobel prizes data
   }, []);
 
   return (

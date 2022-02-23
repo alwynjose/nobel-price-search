@@ -4,22 +4,19 @@ import { useState } from 'react';
 
 /**
  * @param {string} placeholder placeholder sentence or word.
- * @param {Object} data results of the entered words.
+ * @param {Object} data overall data fetched
  */
 function SearchAwards({placeholder, data}) {
 
-    const [awardsData, setAwardsData] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [loader, setLoader] = useState(false);
+    const [awardsData, setAwardsData] = useState([]); // set initial awardsData to be empty
+    const [searchTerm, setSearchTerm] = useState(""); // set the search term to be empty
 
     //console.log(data);
 
     const filterData = (event) => {
         const searchAwardTerm = event.target.value;
-        setLoader(true);
         setSearchTerm(searchAwardTerm);
         const newFilter = data.filter((value) => {
-          setLoader(false);
           if(value.laureates&&value.laureates.length!==0) {
             return value.category.toLowerCase().includes(searchAwardTerm.toLowerCase()) || value.year.includes(searchAwardTerm.toLowerCase()) || checkTerm(value.laureates, searchAwardTerm.toLowerCase());
           } else {
@@ -124,21 +121,6 @@ function SearchAwards({placeholder, data}) {
                 <p>No Results</p>
               </div>
             )}
-
-          {loader&&(
-            <div class="preloader-wrapper small active">
-            <div class="spinner-layer spinner-green-only">
-              <div class="circle-clipper left">
-                <div class="circle"></div>
-              </div><div class="gap-patch">
-                <div class="circle"></div>
-              </div><div class="circle-clipper right">
-                <div class="circle"></div>
-              </div>
-            </div>
-          </div>
-          )}
-
 
         </div>
     )
