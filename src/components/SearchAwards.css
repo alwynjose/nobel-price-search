@@ -1,0 +1,15 @@
+.searchIcon {
+    margin: 15px;
+}
+
+.search {
+    margin-top: 20px;
+}
+
+.card-title-category {
+    text-transform: capitalize;
+}
+
+.close-icon {
+    cursor: pointer;
+}
