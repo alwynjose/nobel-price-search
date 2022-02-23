@@ -17,7 +17,7 @@ function SearchAwards({placeholder, data}) {
         const searchAwardList = event.target.value;
         setSearchTerm(searchAwardList);
         const newFilter = data.filter((value) => {
-          return value.category.toLowerCase().includes(searchAwardList.toLowerCase()) || value.year.includes(searchAwardList.toLowerCase()) || value.laureates.forEach(ele => {return ele.firstname.includes(searchAwardList.toLowerCase())});
+          return value.category.toLowerCase().includes(searchAwardList.toLowerCase()) || value.year.includes(searchAwardList.toLowerCase());
         });
     
         if (searchAwardList === "") {
