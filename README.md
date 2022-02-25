@@ -4,7 +4,7 @@ Search for a keyword in the Nobel Prizes & Laureates list between 1901 - 2021
 
 ![image](https://user-images.githubusercontent.com/11254305/155684218-5c47046d-cdfe-43ed-b703-631f8e6312d3.png)
 
-![image](https://user-images.githubusercontent.com/11254305/155685184-12d4833e-ffc7-4329-8b1e-8f15a96aaf03.png)
+![image](https://user-images.githubusercontent.com/11254305/155686981-e341443a-2229-4eba-9ec5-0ddfff675861.png)
 
 
 API: https://api.nobelprize.org/v1/prize.json 
