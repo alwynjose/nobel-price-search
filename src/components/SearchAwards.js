@@ -47,7 +47,7 @@ function SearchAwards({placeholder, data}) {
 
     return (
       <div className="search">
-        <div class="row">
+        <div className="row">
           <div className="offset-l4 col l4 s10">
             <input
               type="text"
@@ -59,14 +59,14 @@ function SearchAwards({placeholder, data}) {
           </div>
           <div className="col l1 s2 searchIcon">
               {awardsData.length === 0 ? (
-                  <i class="material-icons">search</i>
+                  <i className="material-icons">search</i>
                 ) : ( 
-                  <i class="material-icons close-icon" onClick={clearInput}>close</i>
+                  <i className="material-icons close-icon" onClick={clearInput}>close</i>
                 )}
             </div>
             {awardsData.length !== 0 && (
               <div>
-                <span class="new badge" data-badge-caption="awards found">{awardsData.length}</span>
+                <span className="new badge" data-badge-caption="awards found">{awardsData.length}</span>
               </div>
             )}      
             
@@ -78,16 +78,16 @@ function SearchAwards({placeholder, data}) {
                 return (
                   <div className="dataItem">
                     <p></p>
-                    <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                      <span class="card-title-category">Category:  
+                    <div className="card blue-grey darken-1">
+                    <div className="card-content white-text">
+                      <span className="card-title-category">Category:  
                         <b> {value.category}</b>
                       </span>
                       <p>Year: <b>{value.year} </b></p>
 
                       <p>Laureates:</p>
                     </div>
-                    <div class="card-action">
+                    <div className="card-action">
                       {
                         value.laureates&&value.laureates.length !== 0?(
                           <span>
