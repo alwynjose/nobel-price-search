@@ -1,3 +1,15 @@
+# Nobel Price Search
+
+Search for a keyword in the Nobel Prizes & Laureates list between 1901 - 2021
+
+![image](https://user-images.githubusercontent.com/11254305/155684218-5c47046d-cdfe-43ed-b703-631f8e6312d3.png)
+
+![image](https://user-images.githubusercontent.com/11254305/155686981-e341443a-2229-4eba-9ec5-0ddfff675861.png)
+
+
+API: https://api.nobelprize.org/v1/prize.json 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
